@@ -106,9 +106,6 @@ public:
    */
   virtual void end_of_output( context& ctxt ) { };
 
-  // Add other hooks as needed.
-
-
   /**
    * @brief Configure provider.
    *
