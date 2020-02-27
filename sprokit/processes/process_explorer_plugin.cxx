@@ -607,6 +607,7 @@ explore( const kwiver::vital::plugin_factory_handle_t fact )
       json_dict iport_dict( out_stream(), iport_array_element.indent(), first_element );
       json_dict_item iport_name_item( out_stream(), iport_dict.indent(), "name", port );
       json_dict_item iport_type_item( out_stream(), iport_dict.indent(), "type", type, false );
+      json_dict_item iport_desc_item( out_stream(), iport_dict.indent(), "description", escape_json(port_desc), false);
       json_dict_key iport_flags_key( out_stream(), iport_dict.indent(), "flags", false );
       json_array iport_flags_array( out_stream(), iport_flags_key.indent() );
       json_array_items<sprokit::process::port_flags_t> iport_flags_array_items( out_stream(), iport_flags_array.indent(), flags );
@@ -639,13 +640,14 @@ explore( const kwiver::vital::plugin_factory_handle_t fact )
       json_dict oport_dict( out_stream(), oport_array_element.indent(), first_element );
       json_dict_item oport_name_item( out_stream(), oport_dict.indent(), "name", port );
       json_dict_item oport_type_item( out_stream(), oport_dict.indent(), "type", type, false );
+      json_dict_item oport_desc_item( out_stream(), oport_dict.indent(), "description", escape_json(port_desc), false);
       json_dict_key oport_flags_key( out_stream(), oport_dict.indent(), "flags", false );
       json_array oport_flags_array( out_stream(), oport_flags_key.indent() );
       json_array_items<sprokit::process::port_flags_t> oport_flags_array_items( out_stream(), oport_flags_array.indent(), flags );
       first_element = false;
     }   // end foreach
   }
-} // process_explorer_rst::explore
+} // process_explorer_json::explore
 
 
 // ==================================================================
